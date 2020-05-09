@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="f81ff5ae-0ffa-47a7-8d74-c12ade03a2af">
-        <schema name="main" object-types="view, index, dataset trigger, table, column, constraint" />
+        <schema name="main" object-types="column, dataset trigger, index, constraint, table, view" />
       </connection>
     </loaded-nodes>
   </component>
@@ -36,6 +36,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
+      <object connection-id="f81ff5ae-0ffa-47a7-8d74-c12ade03a2af" object-ref="schemas/main/tables/polls_choice" />
       <object connection-id="f81ff5ae-0ffa-47a7-8d74-c12ade03a2af" object-ref="schemas/main/tables/login_user" />
     </open-files>
   </component>

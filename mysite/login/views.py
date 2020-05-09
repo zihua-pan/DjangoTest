@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import User
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
@@ -28,13 +29,15 @@ def regist(request):
     if 'username' and 'password' in request.POST:
         username = request.POST['username']
         password = request.POST['password']
-        if User.objects.get(username=username):
-            context['wrong'] = "账号已存在"
-        else:
-            context['username'] = request.POST['username']
+        try:
+            username == User.objects.get(username=username).username
+        except User.DoesNotExist:
+            context['username'] = username
             new_user = User(username=username, password=password)
             new_user.save()
             return render(request, 'login/results.html', context)
+        else:
+            context['wrong'] = "账号已存在"
     elif 'username' in request.POST:
         context['wrong'] = "请输入密码"
     else:
